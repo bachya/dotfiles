@@ -32,6 +32,9 @@ alias gpu='git push'
 alias gpl='git pull'
 alias gpp='git pull && git push'
 
+# homebrew
+alias u='brew update && brew upgrade'
+
 # specialized
 export ORIGINAL_PATH=$PATH
 alias rsrc="export PATH=\"$ORIGINAL_PATH\" && exec $SHELL -l"
