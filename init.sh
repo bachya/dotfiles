@@ -45,14 +45,14 @@ if [ -f "$HOME/.vimrc" ]; then
     mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
 fi
 
-ln -s $HOME/dotfiles/.bashrc ~/.bashrc
-ln -s $HOME/dotfiles/.bash_profile ~/.bash_profile
-ln -s $HOME/dotfiles/.ctags ~/.ctags
-ln -s $HOME/dotfiles/.editrc ~/.editrc
-ln -s $HOME/dotfiles/.gitconfig ~/.gitconfig
+ln -s $HOME/dotfiles/bash_profile ~/.bash_profile
+ln -s $HOME/dotfiles/bashrc ~/.bashrc
+ln -s $HOME/dotfiles/ctags ~/.ctags
+ln -s $HOME/dotfiles/editrc ~/.editrc
+ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/dotfiles/ssh_config ~/.ssh/config
-ln -s $HOME/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s $HOME/dotfiles/.vimrc ~/.vimrc
+ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
+ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
 source ~/.bash_profile
 
