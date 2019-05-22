@@ -1,0 +1,36 @@
+Host ck
+  HostName cloud-key.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host durmstrang
+  HostName durmstrang.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host gryffindor
+  HostName gryffindor.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host hub
+  HostName hub.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host hufflepuff
+  HostName hufflepuff.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host linode
+  HostName li109-81.members.linode.com
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host mc
+  HostName media-center.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host ravenclaw
+  HostName ravenclaw.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
+Host slytherin
+  HostName slytherin.phil.lan
+  IdentityFile ~/.ssh/id_ed25519
+  User bachya
