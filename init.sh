@@ -33,6 +33,10 @@ if [ -f "$HOME/.gitconfig" ]; then
     mv -v "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
 fi
 
+if [ -f "$HOME/.pypirc" ]; then
+    mv -v "$HOME/.pypirc" "$HOME/.pypirc.bak"
+fi
+
 if [ -f "$HOME/.ssh/config" ]; then
     mv -v "$HOME/.ssh/config" "$HOME/.ssh/config.bak"
 fi
@@ -50,6 +54,7 @@ ln -s $HOME/dotfiles/bashrc ~/.bashrc
 ln -s $HOME/dotfiles/ctags ~/.ctags
 ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
+ln -s $HOME/dotfiles/pypirc ~/.pypirc
 ln -s $HOME/dotfiles/ssh_config ~/.ssh/config
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 ln -s $HOME/dotfiles/vimrc ~/.vimrc
