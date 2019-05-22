@@ -4,6 +4,7 @@
 alias sudo="sudo "
 
 # general
+alias ls='ls -G'
 alias :q='exit'
 alias c='clear'
 alias cl='clear'
