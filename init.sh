@@ -95,7 +95,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 echo ""
 echo "Installing Python packages..."
-python3 -m pip install \
+python3 -m pip install --user \
     "autopep8" \
     "flake8" \
     coverage \
