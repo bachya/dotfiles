@@ -161,3 +161,7 @@ shopt -s extglob
 shopt -s histappend
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
+
+# THEF***
+# -----------------------------------------------------------------------------
+eval $(thefuck --alias ugh)
