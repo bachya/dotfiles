@@ -4,7 +4,7 @@
 alias sudo="sudo "
 
 # general
-alias ls='ls -G'
+alias ls='ls --color=auto'
 alias :q='exit'
 alias c='clear'
 alias cl='clear'
@@ -33,7 +33,7 @@ alias gpl='git pull'
 alias gpp='git pull && git push'
 
 # homebrew
-alias u='brew update && brew upgrade'
+alias u='sudo apt-get update && sudo apt-get upgrade'
 
 # specialized
 export ORIGINAL_PATH=$PATH
