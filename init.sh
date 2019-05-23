@@ -70,6 +70,10 @@ if [ -f "$HOME/.gitconfig" ]; then
     mv -v "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
 fi
 
+if [ -f "$HOME/.inputrc" ]; then
+    mv -v "$HOME/.inputrc" "$HOME/.inputrc.bak"
+fi
+
 if [ -f "$HOME/.tmux.conf" ]; then
     mv -v "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
 fi
@@ -83,6 +87,7 @@ ln -s $HOME/dotfiles/bashrc ~/.bashrc
 ln -s $HOME/dotfiles/ctags ~/.ctags
 ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
+ln -s $HOME/dotfiles/inputrc ~/.inputrc
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/vim_snippets
 ln -s $HOME/dotfiles/vimrc ~/.vimrc
