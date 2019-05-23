@@ -22,6 +22,7 @@ sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
+    exuberant-ctags \
     git \
     neovim \
     python-pip \
