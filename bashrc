@@ -32,7 +32,7 @@ alias gpu='git push'
 alias gpl='git pull'
 alias gpp='git pull && git push'
 
-# homebrew
+# apt-get
 alias u='sudo apt-get update && sudo apt-get upgrade'
 
 # specialized
@@ -43,21 +43,12 @@ alias wmc="ssh ck '/usr/bin/wakeonlan -i 172.16.10.255 -p 9 4C:CC:6A:69:90:D4'"
 
 # BASH COMPLETION
 # -----------------------------------------------------------------------------
-if type brew &>/dev/null; then
-    for COMPLETION in "$(brew --prefix)"/etc/bash_completion.d/*
-    do
-        [[ -f $COMPLETION ]] && source "$COMPLETION"
-    done
-    if [[ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]];
-    then
-        source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-    fi
-fi
+for COMPLETION in "/etc/bash_completion.d/*"
+do
+    [[ -f $COMPLETION ]] && source "$COMPLETION"
+done
 
-__git_complete g __git_main
-__git_complete gc _git_checkout
-__git_complete gm __git_merge
-__git_complete gp _git_pull
+complete -f g git
 
 # EXPORTS
 # -----------------------------------------------------------------------------
