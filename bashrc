@@ -41,6 +41,8 @@ alias rsrc="export PATH=\"$ORIGINAL_PATH\" && exec $SHELL -l"
 alias ud="$SHELL -c \"cd $HOME/dotfiles && git pull && ./init.sh\" && rsrc"
 alias wmc="ssh ck '/usr/bin/wakeonlan -i 172.16.10.255 -p 9 4C:CC:6A:69:90:D4'"
 
+eval $(thefuck --alias ugh)
+
 # BASH COMPLETION
 # -----------------------------------------------------------------------------
 for COMPLETION in "/etc/bash_completion.d/*"
@@ -155,11 +157,7 @@ shopt -s histappend
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
-# THEF***
-# -----------------------------------------------------------------------------
-eval $(thefuck --alias ugh)
-
-# START!
+# STARTUP
 # -----------------------------------------------------------------------------
 SSH_ENV="$HOME/.ssh/environment"
 function start_agent {
