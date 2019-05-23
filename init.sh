@@ -20,12 +20,16 @@ echo ""
 echo "Installing dependencies..."
 sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update && sudo apt-get install -y \
-    build-essential \
     bash-completion \
+    build-essential \
     git \
     neovim \
     python-pip \
+    python3-dev \
     python3-pip \
+    python3-pip \
+    python3-setuptools \
+    thefuck \
     tmux \
     tree
 
