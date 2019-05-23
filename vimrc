@@ -310,7 +310,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
-Plug 'sjl/gundo.vim'
 Plug 'stevearc/vim-arduino'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-lion'
@@ -413,11 +412,6 @@ map <leader>a :Rg<space>
 " Nice way to get a quickfix/location list to edit multiple files at once
 map <leader>gr :Grepper -tool rg -query<space>
 " }}}
-" Plugin: Gundo {{{
-" toggle gundo
-" https://dougblack.io/words/a-good-vimrc.html
-nnoremap <leader>u :GundoToggle<CR>
-"}}}
 " Plugin: indentLine {{{
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 239
