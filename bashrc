@@ -83,7 +83,7 @@ function tl() {
     local session
     newsession=${1:-new}
     session=$(tmux list-sessions -F "#{session_name}" | \
-        fzf --query="$1" --select-1 --exit-0) &&
+        fzf --reverse --query="$1" --select-1 --exit-0) &&
         tmux attach-session -t "$session"
     }
 
@@ -95,7 +95,7 @@ function tm() {
     local session
     newsession=${1:-new}
     session=$(tmux list-sessions -F "#{session_name}" | \
-        fzf --query="$1" --select-1 --exit-0) &&
+        fzf --reverse --query="$1" --select-1 --exit-0) &&
         tmux attach-session -t "$session" || tmux new-session -s $newsession
     }
 
@@ -104,7 +104,7 @@ function tm() {
 # https://github.com/junegunn/fzf/wiki/examples#with-fasd
 function v() {
     local file
-    file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" \
+    file="$(fasd -Rfl "$1" | fzf -1 -0 ---reverse --no-sort +m)" \
         && vi "${file}" || return 1
     }
 
@@ -121,7 +121,7 @@ function z() {
     fi
 
     local destination
-    destination="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)"
+    destination="$(fasd -Rdl "$1" | fzf -1 -0 --reverse --no-sort +m)"
     [ -n "$destination" ] && cd "${destination}" || return 1
 }
 
