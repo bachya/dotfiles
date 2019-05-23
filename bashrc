@@ -138,8 +138,11 @@ export PATH
 
 # PROMPT
 # -----------------------------------------------------------------------------
-GIT_STATUS=$([[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*")
-PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)$GIT_STATUS\n\[\033[1;36m\]\u@\h\[\033[32m\]$ \[\033[0m\]"
+function parse_git_dirty {
+    [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
+}
+
+export PS1='[\[\033[32m\]\w]\[\033[0m\]$(__git_ps1)$(parse_git_dirty)\n\[\033[1;36m\]\u@\h\[\033[32m\]$ \[\033[0m\]'
 
 # SHELL OPTIONS
 # -----------------------------------------------------------------------------
