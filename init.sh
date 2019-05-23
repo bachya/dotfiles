@@ -113,3 +113,8 @@ python3 -m pip install --user \
     python-language-server \
     yamllint \
     yapf
+
+echo ""
+echo "Installing vim support packages..."
+!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +UpdateRemotePlugins +qa
