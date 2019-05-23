@@ -104,8 +104,8 @@ function tm() {
 # https://github.com/junegunn/fzf/wiki/examples#with-fasd
 function v() {
     local file
-    file="$(fasd -Rfl "$1" | fzf -1 -0 ---reverse --no-sort +m)" \
-        && vi "${file}" || return 1
+    file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" \
+        && vim "${file}" || return 1
     }
 
 # usage: z [directory-fuzz]
