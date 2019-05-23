@@ -88,12 +88,6 @@ mkdir -p "$HOME/.config/nvim"
 echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
 
 echo ""
-echo "Installing vim..."
-mkdir -p ~/.vim/autoload
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo ""
 echo "Installing Python packages..."
 python3 -m pip install --user \
     "autopep8" \
@@ -108,5 +102,3 @@ python3 -m pip install --user \
     python-language-server \
     yamllint \
     yapf
-
-vim +PlugUpdate

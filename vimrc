@@ -262,12 +262,12 @@ command! PropagatePasteBufferToOSX :call PropagatePasteBufferToOSX()
 " Plugins {{{
 " Use vim-plug to manage plugins
 " https://github.com/junegunn/vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-	execute '!curl -fLo ~/.vim/autoload/plug.vim
-				\ https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+	execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Chiel92/vim-autoformat'
 Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
