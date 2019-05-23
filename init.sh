@@ -54,6 +54,10 @@ if [ -f "$HOME/.bash_profile" ]; then
     mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
 fi
 
+if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
+    mv -v "$HOME/.config/nvim/vim_snippets" "$HOME/.config/nvim/vim_snippets.bak"
+fi
+
 if [ -f "$HOME/.ctags" ]; then
     mv -v "$HOME/.ctags" "$HOME/.ctags.bak"
 fi
@@ -80,6 +84,7 @@ ln -s $HOME/dotfiles/ctags ~/.ctags
 ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
+ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/vim_snippets
 ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
 source ~/.bash_profile
