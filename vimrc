@@ -269,21 +269,17 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
-Plug 'albfan/nerdtree-git-plugin'
-Plug 'alfredodeza/coveragepy.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'benmills/vimux'
 Plug 'breuckelen/vim-resize'
 Plug 'chrisbra/unicode.vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
-Plug 'gummesson/stereokai.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -305,8 +301,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
-Plug 'stevearc/vim-arduino'
-Plug 'tomasr/molokai'
+Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/tpope-vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -340,9 +335,6 @@ set t_Co=256                   " Enable full-color support
 set background=dark            " Use colors that look good
 " on a dark background
 colorscheme solarized          " Use custom color scheme
-"}}}
-" Plugin: coverage.py {{{
-map <leader>cp :Coveragepy session<CR>
 "}}}
 " Plugin: EasyMotion {{{
 " <Leader>f{char} to move to {char}
@@ -425,9 +417,6 @@ let g:lion_squeeze_spaces = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled=1
 " }}}
-" Plugin: molokai {{{
-let g:rehash256 = 1
-" }}}
 " Plugin: ncm2 {{{
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
@@ -487,18 +476,7 @@ let g:magit_discard_untracked_do_delete=1
 
 nnoremap <leader>gs :Magit<CR>
 " }}}
-" Plugin: Vimux {{{
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vz :VimuxZoomRunner<CR>
-" }}}
 " Plugin: Vim Tmux Navigator {{{
-" By default, Vim Tmux Navigator binds <C-\> to go to the previous pane.
-" I never really use this and would like to use that keymap for
-" something else, so rather than binding-then-unbinding it, this
-" disables the plugin's keymaps altogether; I redefined the others
-" here.
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
