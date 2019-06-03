@@ -78,6 +78,20 @@ _fasd_bash_hook_cmd_complete v
 
 # FUNCTIONS
 # -----------------------------------------------------------------------------
+# usage: kp
+# to show output of "ps -ef", use [tab] to select one or multiple entries
+# press [enter] to kill selected processes and go back to the process list.
+# or press [escape] to go back to the process list. Press [escape] twice to
+# exit completely.
+function kp() {
+    local pid=$(ps -ef | sed 1d | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process]'" | awk '{print $2}')
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+        kp
+    fi
+}
+
 # usage: tl
 # to use FZF to show and switch to available tmux sessions
 # https://github.com/bag-man/dotfiles/blob/master/bashrc
