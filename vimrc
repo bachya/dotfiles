@@ -269,7 +269,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
-Plug 'altercation/vim-colors-solarized'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -284,6 +283,7 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'idanarye/vim-merginal'
+Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -334,7 +334,7 @@ let g:clever_f_timeout_ms = 3000
 set t_Co=256                   " Enable full-color support
 set background=dark            " Use colors that look good
 " on a dark background
-colorscheme solarized          " Use custom color scheme
+colorscheme onedark          " Use custom color scheme
 "}}}
 " Plugin: EasyMotion {{{
 " <Leader>f{char} to move to {char}
