@@ -56,7 +56,7 @@ if [ -f "$HOME/.bash_profile" ]; then
 fi
 
 if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
-	mv -v "$HOME/.config/nvim/vim_snippets" "$HOME/.config/nvim/vim_snippets.bak"
+	rm "$HOME/.config/nvim/vim_snippets"
 fi
 
 if [ -f "$HOME/.ctags" ]; then
