@@ -113,6 +113,7 @@ python3 -m pip install --user \
 
 echo ""
 echo "Installing nvm..."
+mkdir -p  "$HOME/.nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 nvm install 8
 nvm install 10
