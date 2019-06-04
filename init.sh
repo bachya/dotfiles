@@ -55,8 +55,8 @@ if [ -f "$HOME/.bash_profile" ]; then
 	mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
 fi
 
-if [ -d "$HOME/.config/nvim/coc-settings.json" ]; then
-	rm "$HOME/.config/nvim/coc-settings.json.bak"
+if [ -f "$HOME/.config/nvim/coc-settings.json" ]; then
+	mv -v "$HOME/.config/nvim/coc-settings.json.bak"
 fi
 
 if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
