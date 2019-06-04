@@ -93,8 +93,6 @@ ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/
 ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
-source ~/.bash_profile
-
 echo ""
 echo "Installing Python packages..."
 python3 -m pip install --user \
@@ -131,3 +129,5 @@ mkdir -p "$HOME/.config/nvim"
 echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +UpdateRemotePlugins +qa
+
+source ~/.bash_profile
