@@ -95,9 +95,6 @@ ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
 source ~/.bash_profile
 
-mkdir -p "$HOME/.config/nvim"
-echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
-
 echo ""
 echo "Installing Python packages..."
 python3 -m pip install --user \
@@ -115,6 +112,21 @@ python3 -m pip install --user \
     yapf
 
 echo ""
-echo "Installing vim support packages..."
+echo "Installing nvm..."
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+nvm install 8
+nvm install 10
+nvm alias default 10
+
+echo ""
+echo "Installing npm packages..."
+npm install -g \
+    fixjson \
+    neovim
+
+echo ""
+echo "Installing vim..."
+mkdir -p "$HOME/.config/nvim"
+echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +UpdateRemotePlugins +qa
