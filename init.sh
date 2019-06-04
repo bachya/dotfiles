@@ -99,20 +99,23 @@ ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/
 ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
 echo ""
-echo "Installing Python packages..."
-python3 -m pip install --user \
-    "autopep8" \
-    "flake8" \
-    coverage \
-    gitlint \
-    isort \
-    neovim \
-    pylint \
-    pyls-isort \
-    pyls-mypy \
-    python-language-server \
-    yamllint \
-    yapf
+pip install neovim
+pip3 install \
+	"autopep8" \
+	"flake8" \
+	coverage \
+	gitlint \
+	isort \
+	neovim \
+    pipenv \
+	pycodestyle \
+	pydocstyle \
+	pyflakes \
+	pylint \
+	pyls-isort \
+	python-language-server \
+	yamllint \
+	yapf
 
 echo ""
 echo "Installing nvm..."
