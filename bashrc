@@ -147,18 +147,18 @@ function z() {
 # -----------------------------------------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# NVM
-# -----------------------------------------------------------------------------
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 # PATHS
 # -----------------------------------------------------------------------------
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/bin:/usr/bin:$HOME/.local/bin:$HOME/dotfiles/bin"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH
+
+# PATHS: NVM
+# -----------------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # PROMPT
 # -----------------------------------------------------------------------------
