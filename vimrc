@@ -231,7 +231,8 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " }}}
 " File Management {{{
 " Let's use ripgrep as the grep program!
-set grepprg=rg\ --vimgrep
+set grepprg=rg\ -S\ --vimgrep
+autocmd QuickFixCmdPost *grep* cwindow
 
 " :W and :Save will escape a file name and write it
 function! W(bang, filename)
@@ -290,7 +291,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kshenoy/vim-signature'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'mhinz/vim-grepper', { 'on': 'Grepper' }
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
@@ -395,10 +395,6 @@ command! -bang -nargs=* Rg
 " map <leader>a :Ag<space>
 map <leader>a :Rg<space>
 " }}}
-" Plugin: Grepper {{{
-" Nice way to get a quickfix/location list to edit multiple files at once
-map <leader>gr :Grepper -tool rg -query<space>
-" }}}
 " Plugin: indentLine {{{
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 239
@@ -461,12 +457,6 @@ nmap <Leader>ga <Plug>GitGutterStageHunk
 nmap <Leader>gn <Plug>GitGutterNextHunk
 nmap <Leader>gp <Plug>GitGutterPrevHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
-" }}}
-" Plugin: vim-grepper {{{
-let g:grepper = {}
-runtime autoload/grepper.vim
-let g:grepper.jump = 1
-let g:grepper.stop = 500
 " }}}
 " Plugin: vim-merginal {{{
 nmap <Leader>gb :Merginal<CR>
