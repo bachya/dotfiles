@@ -55,6 +55,10 @@ if [ -f "$HOME/.bash_profile" ]; then
 	mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
 fi
 
+if [ -d "$HOME/.config/nvim/coc-settings.json" ]; then
+	rm "$HOME/.config/nvim/coc-settings.json.bak"
+fi
+
 if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
 	rm "$HOME/.config/nvim/vim_snippets"
 fi
@@ -85,6 +89,7 @@ fi
 
 ln -s $HOME/dotfiles/bash_profile ~/.bash_profile
 ln -s $HOME/dotfiles/bashrc ~/.bashrc
+ln -s $HOME/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -s $HOME/dotfiles/ctags ~/.ctags
 ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
