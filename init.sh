@@ -90,7 +90,7 @@ ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/dotfiles/inputrc ~/.inputrc
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
-ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/vim_snippets
+ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/
 ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
 source ~/.bash_profile
