@@ -157,6 +157,7 @@ export NVM_DIR="$HOME/.nvm"
 # -----------------------------------------------------------------------------
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/bin:/usr/bin:$HOME/.local/bin:$HOME/dotfiles/bin"
+PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH
 
 # PROMPT

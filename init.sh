@@ -48,39 +48,39 @@ sudo update-alternatives --config editor
 echo ""
 echo "Linking configuration files..."
 if [ -f "$HOME/.bashrc" ]; then
-    mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
+	mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
 fi
 
 if [ -f "$HOME/.bash_profile" ]; then
-    mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
+	mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
 fi
 
 if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
-    mv -v "$HOME/.config/nvim/vim_snippets" "$HOME/.config/nvim/vim_snippets.bak"
+	mv -v "$HOME/.config/nvim/vim_snippets" "$HOME/.config/nvim/vim_snippets.bak"
 fi
 
 if [ -f "$HOME/.ctags" ]; then
-    mv -v "$HOME/.ctags" "$HOME/.ctags.bak"
+	mv -v "$HOME/.ctags" "$HOME/.ctags.bak"
 fi
 
 if [ -f "$HOME/.editrc" ]; then
-    mv -v "$HOME/.editrc" "$HOME/.editrc.bak"
+	mv -v "$HOME/.editrc" "$HOME/.editrc.bak"
 fi
 
 if [ -f "$HOME/.gitconfig" ]; then
-    mv -v "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
+	mv -v "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
 fi
 
 if [ -f "$HOME/.inputrc" ]; then
-    mv -v "$HOME/.inputrc" "$HOME/.inputrc.bak"
+	mv -v "$HOME/.inputrc" "$HOME/.inputrc.bak"
 fi
 
 if [ -f "$HOME/.tmux.conf" ]; then
-    mv -v "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
+	mv -v "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
 fi
 
 if [ -f "$HOME/.vimrc" ]; then
-    mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
+	mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
 fi
 
 ln -s $HOME/dotfiles/bash_profile ~/.bash_profile
@@ -120,14 +120,30 @@ nvm alias default 10
 echo ""
 echo "Installing npm packages..."
 npm install -g \
-    fixjson \
-    neovim
+	fixjson \
+	neovim
+
+echo ""
+echo "Installing yarn..."
+curl -o- -L https://yarnpkg.com/install.sh | bash
+
+mkdir -p "$HOME/.config/coc/extensions"
+cd ~/.config/coc/extensions
+if [ ! -f package.json ]
+then
+	echo '{"dependencies":{}}'> package.json
+fi
+
+yarn add \
+	coc-python \
+	coc-json \
+	coc-snippets
 
 echo ""
 echo "Installing vim..."
 mkdir -p "$HOME/.config/nvim"
 echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +UpdateRemotePlugins +qa
+nvim +PlugInstall +UpdateRemotePlugins +CocUpdateSync +qa
 
 source ~/.bash_profile

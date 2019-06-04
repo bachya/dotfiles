@@ -264,16 +264,11 @@ command! PropagatePasteBufferToOSX :call PropagatePasteBufferToOSX()
 " Use vim-plug to manage plugins
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Chiel92/vim-autoformat'
 Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'breuckelen/vim-resize'
 Plug 'chrisbra/unicode.vim'
 Plug 'christoomey/vim-sort-motion'
@@ -291,10 +286,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'kshenoy/vim-signature'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-ultisnips'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'qpkorr/vim-bufkill'
 Plug 'raimondi/delimitmate'
 Plug 'rhysd/clever-f.vim'
@@ -318,6 +310,14 @@ call plug#end()
 filetype on
 " }}}
 " Plugin: Ale {{{
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['yapf']
+\}
+let g:ale_linters = {
+\   'python': ['flake8', 'pycodestyle', 'pydocstyle', 'pylint']
+\}
+
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_echo_msg_warning_str = 'W'
@@ -393,19 +393,11 @@ command! -bang -nargs=* Rg
 			\   <bang>0 ? fzf#vim#with_preview('up:60%')
 			\           : fzf#vim#with_preview('right:50%:hidden', '?'),
 			\   <bang>0)
-" map <leader>a :Ag<space>
 map <leader>a :Rg<space>
 " }}}
 " Plugin: indentLine {{{
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 239
-" }}}
-" Plugin: LanguageClient-neovim {{{
-set hidden
-
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['python -m pyls'],
-    \ }
 " }}}
 " Plugin: lion-vim {{{
 let g:lion_squeeze_spaces = 1
@@ -413,10 +405,6 @@ let g:lion_squeeze_spaces = 1
 " Plugin: Markdown {{{
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled=1
-" }}}
-" Plugin: ncm2 {{{
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
 " }}}
 " Plugin: NERDTree {{{
 let g:NERDTreeMapActivateNode = "<F3>"
@@ -434,10 +422,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim_snippets"]
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" }}}
-" Plugin: vim-autoformat {{{
-let g:formatters_python = ['yapf']
-let g:formatter_yapf_style = 'google'
 " }}}
 " Plugin: vim-fugitive {{{
 nnoremap <leader>gP :Gpull \| :Gpush<cr>
