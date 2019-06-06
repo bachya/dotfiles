@@ -107,7 +107,6 @@ pip3 install \
 	gitlint \
 	isort \
 	neovim \
-    pipenv \
 	pycodestyle \
 	pydocstyle \
 	pyflakes \
@@ -115,6 +114,8 @@ pip3 install \
 	pyls-isort \
 	python-language-server \
 	yamllint \
+    black \
+    pipenv \
 	yapf
 
 echo ""
