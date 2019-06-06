@@ -310,6 +310,10 @@ call plug#end()
 filetype on
 " }}}
 " Plugin: Ale {{{
+noremap <leader>F :ALEFix<cr>
+nmap <silent> <C-n> :ALENext<cr>
+nmap <silent> <C-n> :ALENext<cr>
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['yapf']
@@ -323,9 +327,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-
-nmap <silent> <C-p> :ALEPrevious<cr>
-nmap <silent> <C-n> :ALENext<cr>
 " }}}
 " Plugin: clever-f.vim {{{
 let g:clever_f_across_no_line = 1
