@@ -316,7 +316,7 @@ nmap <silent> <C-n> :ALENext<cr>
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['yapf']
+\   'python': ['black']
 \}
 let g:ale_linters = {
 \   'python': ['flake8', 'pycodestyle', 'pydocstyle', 'pylint']
