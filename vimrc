@@ -19,7 +19,7 @@ set cpoptions+=$               " When making a change, don't
                                " redisplay the line, and instead,
                                " put a `$` sign at the end of
                                " the changed text
-set colorcolumn=80             " Highlight certain column(s)
+set colorcolumn=89             " Highlight certain column(s)
 set cursorline                 " Highlight the current line
 set directory=~/.vim/swaps     " Set directory for swap files
 set encoding=utf-8 nobomb      " Use UTF-8 without BOM
@@ -319,7 +319,7 @@ let g:ale_fixers = {
 \   'python': ['black']
 \}
 let g:ale_linters = {
-\   'python': ['flake8', 'pycodestyle', 'pydocstyle', 'pylint']
+\   'python': ['flake8', 'pydocstyle', 'pylint']
 \}
 
 let g:ale_echo_msg_error_str = 'E'
@@ -328,8 +328,6 @@ let g:ale_echo_msg_warning_str = 'W'
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-
-let g:ale_python_black_options = '--line-length 79'
 " }}}
 " Plugin: clever-f.vim {{{
 let g:clever_f_across_no_line = 1
