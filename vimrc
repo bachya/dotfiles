@@ -311,7 +311,7 @@ filetype on
 " }}}
 " Plugin: Ale {{{
 noremap <leader>F :ALEFix<cr>
-nmap <silent> <C-n> :ALENext<cr>
+nmap <silent> <C-p> :ALEPrevious<cr>
 nmap <silent> <C-n> :ALENext<cr>
 
 let g:ale_fixers = {
