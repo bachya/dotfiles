@@ -101,22 +101,18 @@ ln -s $HOME/dotfiles/vimrc ~/.vimrc
 echo ""
 pip install neovim
 pip3 install \
-	"autopep8" \
 	"flake8" \
     black \
-	coverage \
 	gitlint \
 	isort \
 	neovim \
     pipenv \
-	pycodestyle \
 	pydocstyle \
-	pyflakes \
 	pylint \
+	pyls-black \
 	pyls-isort \
 	python-language-server \
 	yamllint \
-	yapf
 
 echo ""
 echo "Installing nvm..."
