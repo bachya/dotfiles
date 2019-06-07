@@ -280,7 +280,6 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'joshdick/onedark.vim'
-Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -447,11 +446,6 @@ nmap <Leader>gu <Plug>GitGutterUndoHunk
 " }}}
 " Plugin: vim-merginal {{{
 nmap <Leader>gb :Merginal<CR>
-" }}}
-" Plugin: vimagit {{{
-let g:magit_discard_untracked_do_delete=1
-
-nnoremap <leader>gs :Magit<CR>
 " }}}
 " Plugin: Vim Tmux Navigator {{{
 let g:tmux_navigator_no_mappings = 1
