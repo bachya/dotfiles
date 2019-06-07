@@ -2,10 +2,10 @@ set -o vi
 
 # ALIASES
 # -----------------------------------------------------------------------------
-# allow sudo with aliases
+# Allow sudo with aliases:
 alias sudo="sudo "
 
-# general
+# General:
 alias ls='ls --color=auto'
 alias :q='exit'
 alias c='clear'
@@ -15,34 +15,32 @@ alias g='git'
 alias ll='ls -l'
 alias vim='nvim'
 
-# docker
+# Docker:
 alias dockerkillall='docker kill $(docker ps -q)'
 alias dockercleanc='docker ps -a -q | xargs -r docker rm'
 alias dockercleani='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias dockercleanv='docker volume rm $(docker volume ls -qf dangling=true)'
 alias dockerclean='dockercleanc && dockercleani && dockercleanv'
 
-# navigation
+# Navigation:
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias cd..='cd ..'
 
-# git
+# Git:
 alias gs='git status'
 alias gpu='git push'
 alias gpl='git pull'
 alias gpp='git pull && git push'
 
 # apt-get
-alias u='sudo apt-get update && sudo apt-get upgrade && sudo apt autoremove && sudo apt-get clean'
 
-# specialized
+# Specialized:
 export ORIGINAL_PATH=$PATH
 alias rsrc="export PATH=\"$ORIGINAL_PATH\" && exec $SHELL -l"
 alias ud="$SHELL -c \"cd $HOME/dotfiles && git pull && ./init.sh\" && rsrc"
 alias wmc="ssh ck '/usr/bin/wakeonlan -i 172.16.10.255 -p 9 4C:CC:6A:69:90:D4'"
-
 eval $(thefuck --alias ugh)
 
 # BASH COMPLETION
