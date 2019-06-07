@@ -1,6 +1,7 @@
 " Aaron Bach's .vimrc
-" vim:foldmethod=marker:foldlevel=99
-" General Settings {{{
+" vim:fdm=expr:fdl=0
+" vim:fde=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
+""" General Settings
 set nocompatible               " Don't make vim vi-compatibile
 syntax on                      " Enable syntax highlighting
 if has('autocmd')
@@ -108,8 +109,7 @@ elseif has('python3')
 else
 	let s:python_version = 0
 endif
-" }}}
-" General Key Mappings {{{
+""" General Key Mappings
 " Use a different mapleader (default is '\')
 let mapleader = ','
 
@@ -146,13 +146,11 @@ nnoremap Y y$
 
 " qq to record, Q to replay
 nnoremap Q @q
-" }}}
-" Backups {{{
+""" Backups
 set nobackup
 set nowb
 set noswapfile
-" }}}
-" Buffers {{{
+""" Buffers
 nnoremap <Tab> :bn<cr>
 nnoremap <S-Tab> :bp<cr>
 nmap ; :Buffers<cr>
@@ -170,15 +168,13 @@ autocmd BufReadPost *
 
 " Remember info about open buffers on close
 set viminfo^=%
-" }}}
-" Clipboard {{{
+""" Clipboard
 set clipboard=unnamed          " ┐
 " │ Use the system clipboard
 if has('unnamedplus')          " │ as the default register
 	set clipboard+=unnamedplus   " │
 endif                          " ┘
-" }}}
-" Editing {{{
+""" Editing
 " Automatically strip the trailing whitespaces when files are saved
 function! StripTrailingWhitespaces()
 	" Save last search and cursor position
@@ -228,8 +224,7 @@ endif
 
 " http://vimcasts.org/episodes/soft-wrapping-text/
 command! -nargs=* Wrap set wrap linebreak nolist
-" }}}
-" File Management {{{
+""" File Management
 " Let's use ripgrep as the grep program!
 set grepprg=rg\ -S\ --vimgrep
 map <leader>gr :grep<space>
@@ -246,15 +241,13 @@ function! Save(bang, filename)
 endfunction
 command! -bang -nargs=* W :call W(<q-bang>, <q-args>)
 command! -bang -nargs=* Save :call Save(<q-bang>, <q-args>)
-" }}}
-" Folding {{{
+""" Folding
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
 nnoremap <space><space> za
-" }}}
-" pbcopy/pbpaste {{{
+""" pbcopy/pbpaste
 " https://gist.github.com/burke/5960455
 function! PropagatePasteBufferToOSX()
 	let @n=getreg("")
@@ -262,8 +255,7 @@ function! PropagatePasteBufferToOSX()
 	echo "done"
 endfunction
 command! PropagatePasteBufferToOSX :call PropagatePasteBufferToOSX()
-" }}}
-" Plugins {{{
+""" Plugins
 " Use vim-plug to manage plugins
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -311,8 +303,7 @@ Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 call plug#end()
 filetype on
-" }}}
-" Plugin: Ale {{{
+""" Plugin: Ale
 noremap <leader>F :ALEFix<cr>
 nmap <silent> <C-p> :ALEPrevious<cr>
 nmap <silent> <C-n> :ALENext<cr>
@@ -331,18 +322,16 @@ let g:ale_echo_msg_warning_str = 'W'
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-" }}}
-" Plugin: clever-f.vim {{{
+""" Plugin: clever-f.vim
 let g:clever_f_across_no_line = 1
 let g:clever_f_timeout_ms = 3000
-" }}}
-" Plugin: Color Scheme {{{
+""" Plugin: Color Scheme
 set t_Co=256                   " Enable full-color support
 set background=dark            " Use colors that look good
 " on a dark background
 colorscheme onedark          " Use custom color scheme
 "}}}
-" Plugin: EasyMotion {{{
+""" Plugin: EasyMotion
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -381,8 +370,7 @@ noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
 noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
 noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
-" }}}
-" Plugin: FZF {{{
+""" Plugin: FZF
 let g:fzf_action = {
 			\ 'ctrl-s': 'split',
 			\ 'ctrl-v': 'vsplit'
@@ -399,40 +387,32 @@ command! -bang -nargs=* Rg
 			\           : fzf#vim#with_preview('right:50%:hidden', '?'),
 			\   <bang>0)
 map <leader>a :Rg<space>
-" }}}
-" Plugin: indentLine {{{
+""" Plugin: indentLine
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 239
-" }}}
-" Plugin: lion-vim {{{
+""" Plugin: lion-vim
 let g:lion_squeeze_spaces = 1
-" }}}
-" Plugin: Markdown {{{
+""" Plugin: Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled=1
-" }}}
-" Plugin: NERDTree {{{
+""" Plugin: NERDTree
 let g:NERDTreeMapActivateNode = "<F3>"
 let g:NERDTreeMapPreview      = "<F4>"
 
 nnoremap <silent> <C-\> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-" }}}
-" Plugin: Supertab {{{
+""" Plugin: Supertab
 let g:SuperTabDefaultCompletionType = 'context'
-" }}}
-" Plugin: UltiSnips {{{
+""" Plugin: UltiSnips
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim_snippets"]
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" }}}
-" Plugin: vim-fugitive {{{
+""" Plugin: vim-fugitive
 nnoremap <leader>gP :Gpull \| :Gpush<cr>
 nnoremap <Leader>gb :Gblame<CR>
-" }}}
-" Plugin: vim-gitgutter {{{
+""" Plugin: vim-gitgutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_modified_removed = '<'
@@ -447,23 +427,19 @@ nmap <Leader>ga <Plug>GitGutterStageHunk
 nmap <Leader>gn <Plug>GitGutterNextHunk
 nmap <Leader>gp <Plug>GitGutterPrevHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
-" }}}
-" Plugin: vim-merginal {{{
+""" Plugin: vim-merginal
 nmap <Leader>gb :Merginal<CR>
-" }}}
-" Plugin: vimagit {{{
+""" Plugin: vimagit
 let g:magit_discard_untracked_do_delete=1
 
 nnoremap <leader>gs :Magit<CR>
-" }}}
-" Plugin: Vim Tmux Navigator {{{
+""" Plugin: Vim Tmux Navigator
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-" }}}
-" Status Line {{{
+""" Status Line
 " Terminal types:
 "   1) term  (normal terminals, e.g.: vt100, xterm)
 "   2) cterm (color terminals, e.g.: MS-DOS console, color-xterm)
@@ -533,4 +509,3 @@ set statusline+=\ (%P)\        " Percent through file
 "  [1] [master] [vim/vimrc][vim][unix:utf-8]            17,238/381 (59%)
 
 set laststatus=2               " Always show the status line
-" }}}
