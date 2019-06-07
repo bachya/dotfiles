@@ -232,7 +232,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " File Management {{{
 " Let's use ripgrep as the grep program!
 set grepprg=rg\ -S\ --vimgrep
-autocmd QuickFixCmdPost *grep* cwindow
+autocmd QuickFixCmdPost grep nested cwindow
 
 " :W and :Save will escape a file name and write it
 function! W(bang, filename)
