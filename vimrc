@@ -232,6 +232,9 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " File Management {{{
 " Let's use ripgrep as the grep program!
 set grepprg=rg\ -S\ --vimgrep
+map <leader>gr :grep<space>
+
+" Immediately open the QuickFix window
 autocmd QuickFixCmdPost grep nested cwindow
 
 " :W and :Save will escape a file name and write it
