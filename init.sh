@@ -101,9 +101,9 @@ ln -s $HOME/dotfiles/vimrc ~/.vimrc
 echo ""
 pip install neovim
 pip3 install \
+	gitlint \
 	"flake8" \
     black \
-	gitlint \
 	isort \
 	neovim \
     pipenv \
