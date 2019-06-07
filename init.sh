@@ -107,6 +107,7 @@ pip3 install \
 	isort \
 	neovim \
     pipenv \
+    pre-commit \
 	pydocstyle \
 	pylint \
 	pyls-black \
