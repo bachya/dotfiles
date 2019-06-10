@@ -51,12 +51,9 @@ ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 echo "Installing dependencies..."
-sudo apt-get update && sudo apt-get install software-properties-common
-sudo add-apt-repository -y ppa:aacebedo/fasd
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
-    fasd \
     git \
     libffi-dev \
     libssl-dev \
@@ -68,6 +65,8 @@ sudo apt-get update && sudo apt-get install -y \
     tree \
     vim.tiny
 
+echo ""
+echo "Installing vim.tiny..."
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim.tiny 60
 sudo update-alternatives --config vi
 sudo update-alternatives --install /usr/bin/vim vim /usr/bin/vim.tiny 60
