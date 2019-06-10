@@ -51,9 +51,11 @@ ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 echo "Installing dependencies..."
+sudo add-apt-repository ppa:aacebedo/fasd
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
+    fasd \
     git \
     libffi-dev \
     libssl-dev \
