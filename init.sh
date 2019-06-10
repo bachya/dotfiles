@@ -27,14 +27,16 @@ sudo apt-get update && sudo apt-get install -y \
     python-pip \
     python3-dev \
     python3-pip \
-    python3-setuptools \
     tmux \
     tree \
     vim.tiny
 
 echo ""
 echo "Cloning a copy of dotfiles..."
-[[ -d $HOME/dotfiles ]] || git clone git@github.com:bachya/dotfiles.git
+if [ ! -d $HOME/dotfiles ]; then
+    git clone git@github.com:bachya/dotfiles.git
+    git checkout rpi
+fi
 
 echo ""
 echo "Linking configuration files..."
