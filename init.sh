@@ -22,6 +22,8 @@ sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
     git \
+    libffi-dev \
+    libssl-dev \
     python-pip \
     python3-dev \
     python3-pip \
@@ -72,7 +74,8 @@ ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 echo "Installing Python packages..."
-pip3 install \
-    docker-compose \
+pip install --user --upgrade \
+    setuptools \
+    docker-compose
 
 source ~/.bash_profile
