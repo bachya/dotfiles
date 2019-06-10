@@ -22,28 +22,20 @@ sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
-    docker-compose \
-    exuberant-ctags \
     git \
-    neovim \
     python-pip \
     python3-dev \
     python3-pip \
-    python3-pip \
     python3-setuptools \
-    thefuck \
     tmux \
-    tree
+    tree \
+    vim.tiny
 
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
-sudo dpkg -i ripgrep_11.0.1_amd64.deb
-rm ripgrep_11.0.1_amd64.deb
-
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim.tiny 60
 sudo update-alternatives --config vi
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/vim.tiny 60
 sudo update-alternatives --config vim
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim.tiny 60
 sudo update-alternatives --config editor
 
 echo ""
@@ -54,18 +46,6 @@ fi
 
 if [ -f "$HOME/.bash_profile" ]; then
 	mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
-fi
-
-if [ -f "$HOME/.config/nvim/coc-settings.json" ]; then
-	mv -v "$HOME/.config/nvim/coc-settings.json" "$HOME/.config/nvim/coc-settings.json.bak"
-fi
-
-if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
-	rm "$HOME/.config/nvim/vim_snippets"
-fi
-
-if [ -f "$HOME/.ctags" ]; then
-	mv -v "$HOME/.ctags" "$HOME/.ctags.bak"
 fi
 
 if [ -f "$HOME/.editrc" ]; then
@@ -84,74 +64,17 @@ if [ -f "$HOME/.tmux.conf" ]; then
 	mv -v "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
 fi
 
-if [ -f "$HOME/.vimrc" ]; then
-	mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
-fi
-
 ln -s $HOME/dotfiles/bash_profile ~/.bash_profile
 ln -s $HOME/dotfiles/bashrc ~/.bashrc
-ln -s $HOME/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -s $HOME/dotfiles/ctags ~/.ctags
 ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/dotfiles/inputrc ~/.inputrc
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
-ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/
-ln -s $HOME/dotfiles/vimrc ~/.vimrc
 
 echo ""
-pip install neovim
+echo "Installing Python packages..."
 pip3 install \
-	gitlint \
-	"flake8" \
-    black \
-	isort \
-	neovim \
+    docker-compose \
     pipenv \
-    pre-commit \
-	pydocstyle \
-	pylint \
-	pyls-black \
-	pyls-isort \
-	python-language-server \
-	yamllint \
-
-echo ""
-echo "Installing nvm..."
-mkdir -p  "$HOME/.nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-source ~/.bash_profile
-nvm install 8
-nvm install 10
-nvm alias default 10
-
-echo ""
-echo "Installing npm packages..."
-npm install -g \
-	fixjson \
-	neovim
-
-echo ""
-echo "Installing yarn..."
-curl -o- -L https://yarnpkg.com/install.sh | bash
-
-mkdir -p "$HOME/.config/coc/extensions"
-cd ~/.config/coc/extensions
-if [ ! -f package.json ]
-then
-	echo '{"dependencies":{}}'> package.json
-fi
-
-yarn add \
-	coc-python \
-	coc-json \
-	coc-snippets
-
-echo ""
-echo "Installing vim..."
-mkdir -p "$HOME/.config/nvim"
-echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +UpdateRemotePlugins +CocUpdateSync +qa
 
 source ~/.bash_profile
