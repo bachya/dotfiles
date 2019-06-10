@@ -17,6 +17,26 @@ function ask_for_sudo() {
 echo "Initializing dotfiles..."
 
 echo ""
+echo "Installing dependencies..."
+sudo apt-get update && sudo apt-get install -y \
+    bash-completion \
+    build-essential \
+    git \
+    libffi-dev \
+    libssl-dev \
+    python-pip \
+    python3-dev \
+    python3-pip \
+    python3-setuptools \
+    tmux \
+    tree \
+    vim.tiny
+
+echo ""
+echo "Cloning a copy of dotfiles..."
+git clone git@github.com:bachya/dotfiles.git
+
+echo ""
 echo "Linking configuration files..."
 if [ -f "$HOME/.bashrc" ]; then
 	mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
@@ -48,22 +68,6 @@ ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/dotfiles/inputrc ~/.inputrc
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
-
-echo ""
-echo "Installing dependencies..."
-sudo apt-get update && sudo apt-get install -y \
-    bash-completion \
-    build-essential \
-    git \
-    libffi-dev \
-    libssl-dev \
-    python-pip \
-    python3-dev \
-    python3-pip \
-    python3-setuptools \
-    tmux \
-    tree \
-    vim.tiny
 
 echo ""
 echo "Installing vim.tiny..."
