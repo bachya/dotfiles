@@ -51,6 +51,7 @@ ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 echo "Installing dependencies..."
+sudo apt-get update && sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:aacebedo/fasd
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
