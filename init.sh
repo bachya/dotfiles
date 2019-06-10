@@ -25,8 +25,6 @@ sudo apt-get update && sudo apt-get install -y \
     libffi-dev \
     libssl-dev \
     python-pip \
-    python3-dev \
-    python3-pip \
     tmux \
     tree \
     vim.tiny
@@ -84,6 +82,7 @@ sudo update-alternatives --config editor
 echo ""
 echo "Installing Python packages..."
 pip install --user --upgrade \
+    pip \
     setuptools \
     docker-compose
 
