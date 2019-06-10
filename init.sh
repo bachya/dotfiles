@@ -74,6 +74,5 @@ echo ""
 echo "Installing Python packages..."
 pip3 install \
     docker-compose \
-    pipenv \
 
 source ~/.bash_profile
