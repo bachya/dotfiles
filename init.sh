@@ -17,29 +17,6 @@ function ask_for_sudo() {
 echo "Initializing dotfiles..."
 
 echo ""
-echo "Installing dependencies..."
-sudo apt-get update && sudo apt-get install -y \
-    bash-completion \
-    build-essential \
-    git \
-    libffi-dev \
-    libssl-dev \
-    python-pip \
-    python3-dev \
-    python3-pip \
-    python3-setuptools \
-    tmux \
-    tree \
-    vim.tiny
-
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim.tiny 60
-sudo update-alternatives --config vi
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/vim.tiny 60
-sudo update-alternatives --config vim
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim.tiny 60
-sudo update-alternatives --config editor
-
-echo ""
 echo "Linking configuration files..."
 if [ -f "$HOME/.bashrc" ]; then
 	mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
@@ -71,6 +48,29 @@ ln -s $HOME/dotfiles/editrc ~/.editrc
 ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/dotfiles/inputrc ~/.inputrc
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
+
+echo ""
+echo "Installing dependencies..."
+sudo apt-get update && sudo apt-get install -y \
+    bash-completion \
+    build-essential \
+    git \
+    libffi-dev \
+    libssl-dev \
+    python-pip \
+    python3-dev \
+    python3-pip \
+    python3-setuptools \
+    tmux \
+    tree \
+    vim.tiny
+
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim.tiny 60
+sudo update-alternatives --config vi
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/vim.tiny 60
+sudo update-alternatives --config vim
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim.tiny 60
+sudo update-alternatives --config editor
 
 echo ""
 echo "Installing Python packages..."
