@@ -35,6 +35,7 @@ alias gpl='git pull'
 alias gpp='git pull && git push'
 
 # apt-get
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove
 
 # Specialized:
 export ORIGINAL_PATH=$PATH
