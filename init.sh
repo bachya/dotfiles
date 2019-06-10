@@ -34,7 +34,7 @@ sudo apt-get update && sudo apt-get install -y \
 
 echo ""
 echo "Cloning a copy of dotfiles..."
-git clone git@github.com:bachya/dotfiles.git
+[[ -d $HOME/dotfiles ]] || git clone git@github.com:bachya/dotfiles.git
 
 echo ""
 echo "Linking configuration files..."
