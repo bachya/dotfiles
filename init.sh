@@ -18,7 +18,6 @@ echo "Initializing dotfiles..."
 
 echo ""
 echo "Installing dependencies..."
-sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
