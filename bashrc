@@ -66,7 +66,13 @@ export PYTHONIOENCODING='UTF-8'
 
 # FASD
 # -----------------------------------------------------------------------------
-eval "$(fasd --init auto)"
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
 _fasd_bash_hook_cmd_complete v
 
 # FUNCTIONS
