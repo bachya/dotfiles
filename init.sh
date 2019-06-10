@@ -35,6 +35,7 @@ echo ""
 echo "Cloning a copy of dotfiles..."
 if [ ! -d $HOME/dotfiles ]; then
     git clone git@github.com:bachya/dotfiles.git
+    cd dotfiles
     git checkout rpi
 fi
 
