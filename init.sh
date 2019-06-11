@@ -81,9 +81,7 @@ sudo update-alternatives --config editor
 
 echo ""
 echo "Installing Python packages..."
-pip install --user --upgrade \
-    pip \
-    setuptools \
+pip install --user --upgrade --no-use-wheel \
     docker-compose
 
 source ~/.bash_profile
