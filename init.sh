@@ -72,6 +72,11 @@ ln -s $HOME/dotfiles/inputrc ~/.inputrc
 ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
+echo "Installing Docker..."
+curl -sSL https://get.docker.com | sh
+usermod -aG docker $(whoami)
+
+echo ""
 echo "Installing vim.tiny..."
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim.tiny 60
 sudo update-alternatives --config vi
