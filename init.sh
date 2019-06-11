@@ -25,9 +25,7 @@ sudo apt-get update && sudo apt-get install -y \
     libffi-dev \
     libssl-dev \
     python-dev \
-    python-pip \
     python3-dev \
-    python3-pip \
     tmux \
     tree \
     vim.tiny
@@ -84,6 +82,10 @@ sudo update-alternatives --config editor
 
 echo ""
 echo "Installing Python packages..."
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo python3 get-pip.py
+rm get-pip.py
 pip install --user --upgrade docker-compose
 
 source ~/.bash_profile
