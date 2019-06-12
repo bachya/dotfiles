@@ -75,6 +75,14 @@ echo ""
 echo "Installing Docker..."
 curl -sSL https://get.docker.com | sh
 usermod -aG docker $(whoami)
+mkdir -p /etc/systemd/system/docker.service.d
+echo -n """
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H unix:// -H tcp://0.0.0.0:2376
+""" > /etc/systemd/system/docker.service.d/override.conf
+systemctl daemon-reload
+systemctl restart docker.service
 
 echo ""
 echo "Installing vim.tiny..."
