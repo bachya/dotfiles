@@ -80,7 +80,7 @@ echo -n """
 [Service]
 ExecStart=
 ExecStart=/usr/bin/dockerd -H unix:// -H tcp://0.0.0.0:2376
-""" > sudo tee -a /etc/systemd/system/docker.service.d/override.conf
+""" | sudo tee -a /etc/systemd/system/docker.service.d/override.conf
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
 
