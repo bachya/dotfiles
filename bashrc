@@ -30,8 +30,9 @@ alias cd..='cd ..'
 # Git:
 alias gs='git status'
 alias gpu='git push'
+alias gmod='git submodule update --recursive --remote'
 alias gpl='git pull'
-alias gpp='git pull && git push'
+alias gpp='gpu && gmod && gpu'
 
 # apt-get
 alias u='sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove'
