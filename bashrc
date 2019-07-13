@@ -189,5 +189,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
-
-clear
