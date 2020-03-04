@@ -1,0 +1,2 @@
+--exclude=*/.tox
+--python-kinds=-i

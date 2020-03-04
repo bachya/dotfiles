@@ -1,0 +1,131 @@
+[alias]
+  # Basic aliases:
+  br = branch
+  c = commit
+  co = checkout
+  cp = cherry-pick
+  d = diff
+  dc = diff --cached
+  s = status
+
+  # Logs:
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  le = log --oneline --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+
+  # Ammend the comment on the current commit:
+  a = commit --amend
+
+  # Stage all changes for commit:
+  all = add -A
+
+  # Commit all changes:
+  ca = !git add -A && git commit
+
+  # Run ctags:
+  ctags = !.git/hooks/ctags
+
+  # Fully update a repo (including submodules):
+  pup = !git pull && git submodule init && git submodule update && git submodule status
+
+  # Undoing/Removing things:
+  rlc = reset --hard HEAD~1                  # Remove last commit
+  ulc = reset --soft HEAD~1                  # Undo last commit
+  undo = !git reset --hard && git clean -dfq  # Big undo of everything
+
+  # Find commits by source code
+  cc = "!f() { \
+    git log --pretty=custom --decorate --date=short -S\"$1\"; \
+  }; f"
+
+  # Find commits by commit message
+  cm = "!f() { \
+    git log --pretty=custom --decorate --date=short --grep=\"$1\"; \
+  }; f"
+
+  # Credit an author on the latest commit
+  credit = "!f() { \
+    if [ -n \"$1\" ] && [ -n \"$2\" ]; then \
+      git commit --amend --author \"$1 <$2>\" -C HEAD; \
+    fi \
+  }; f"
+
+  # List remote branches
+  lrb = "!f() { \
+    remote="${1:-origin}"; \
+    git ls-remote --heads "$remote"; \
+  }; f"
+
+  # Remove the tag with the specified tag name if
+  # exists and tag the latest commit with that name
+  retag = "!f() { \
+    git tag -d "$1" &> /dev/null; \
+    git tag $1; \
+  }; f"
+
+  rmbr = "!f() { \
+    branch="$1"; \
+    remote="${2:-origin}"; \
+    git branch -D "$branch"; \
+    git push "$remote" --delete "$branch"; \
+    git remote prune "$remote"; \
+  }; f"
+
+
+[color "branch"]
+  current = green bold
+  local = green
+  remote = yellow
+
+[color "diff"]
+  frag = magenta
+  meta = yellow
+  new = green
+  old = red
+
+[color "status"]
+  added = green reverse
+  changed = yellow reverse
+  untracked = red reverse
+
+[core]
+  abbrev = 12
+  attributesfile = ~/.gitattributes
+  autocrlf = input
+  excludesfile = ~/.gitignore
+
+[diff "bin"]
+  # Use `hexdump` to diff binary files
+  textconv = hexdump -v -C
+
+[pretty]
+    custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+    #                     │        │            │            │             └─ author name
+    #                     │        │            │            └─ message
+    #                     │        │            └─ date (relative)
+    #                     │        └─ decorations (branch, heads or tags)
+    #                     └─ hash (abbreviated)
+
+[push]
+  # Make `git push` automatically push relevant
+  # annotated tags when pushing branches out
+  followTags = true
+	default = simple
+
+[github]
+  user = bachya
+
+[user]
+  email = bachya1208@gmail.com
+  name = Aaron Bach
+
+[include]
+  path = ~/.gitconfig.local
+
+[submodule]
+	recurse = true
+[init]
+	templatedir = ~/.git_template
