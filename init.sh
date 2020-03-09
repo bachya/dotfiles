@@ -184,4 +184,5 @@ sudo apt install ./espanso-debian-amd64.deb
 rm ./espanso-debian-amd64.deb
 espanso install all-emojis
 
+# shellcheck source=bash_profile
 source ~/.bash_profile
