@@ -182,6 +182,5 @@ wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-
 sudo apt install ./espanso-debian-amd64.deb
 rm ./espanso-debian-amd64.deb
 espanso install all-emojis
-espanso restart
 
 source ~/.bash_profile
