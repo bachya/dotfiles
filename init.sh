@@ -37,7 +37,7 @@ sudo apt-get update && sudo apt-get install -y \
 
 echo ""
 echo "Cloning a copy of dotfiles..."
-if [ ! -d $HOME/dotfiles ]; then
+if [ ! -d "$HOME/dotfiles" ]; then
     git clone git@github.com:bachya/dotfiles.git
     cd dotfiles
     git checkout linux
@@ -46,66 +46,66 @@ fi
 echo ""
 echo "Linking configuration files..."
 if [ -f "$HOME/.bashrc" ]; then
-	mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
+    mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
 fi
 
 if [ -f "$HOME/.bash_profile" ]; then
-	mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
+    mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
 fi
 
 if [ -f "$HOME/.config/nvim/coc-settings.json" ]; then
-	mv -v "$HOME/.config/nvim/coc-settings.json" "$HOME/.config/nvim/coc-settings.json.bak"
+    mv -v "$HOME/.config/nvim/coc-settings.json" "$HOME/.config/nvim/coc-settings.json.bak"
 fi
 
 if [ -d "$HOME/.config/nvim/vim_snippets" ]; then
-	rm -rf "$HOME/.config/nvim/vim_snippets"
+    rm -rf "$HOME/.config/nvim/vim_snippets"
 fi
 
 if [ -f "$HOME/.ctags" ]; then
-	mv -v "$HOME/.ctags" "$HOME/.ctags.bak"
+    mv -v "$HOME/.ctags" "$HOME/.ctags.bak"
 fi
 
 if [ -f "$HOME/.editrc" ]; then
-	mv -v "$HOME/.editrc" "$HOME/.editrc.bak"
+    mv -v "$HOME/.editrc" "$HOME/.editrc.bak"
 fi
 
 if [ -d "$HOME/.git_template" ]; then
-	rm -rf "$HOME/.git_template"
+    rm -rf "$HOME/.git_template"
 fi
 
 if [ -f "$HOME/.gitconfig" ]; then
-	mv -v "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
+    mv -v "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
 fi
 
 if [ -f "$HOME/.inputrc" ]; then
-	mv -v "$HOME/.inputrc" "$HOME/.inputrc.bak"
+    mv -v "$HOME/.inputrc" "$HOME/.inputrc.bak"
 fi
 
 if [ -f "$HOME/.tmux.conf" ]; then
-	mv -v "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
+    mv -v "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
 fi
 
 if [ -f "$HOME/.vimrc" ]; then
-	mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
+    mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
 fi
 
-ln -s $HOME/dotfiles/bash_profile ~/.bash_profile
-ln -s $HOME/dotfiles/bashrc ~/.bashrc
+ln -s "$HOME/dotfiles/bash_profile" ~/.bash_profile
+ln -s "$HOME/dotfiles/bashrc" ~/.bashrc
 mkdir -p ~/.config/nvim
-ln -s $HOME/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -s $HOME/dotfiles/ctags ~/.ctags
-ln -s $HOME/dotfiles/editrc ~/.editrc
-ln -s $HOME/dotfiles/git_template ~/.git_template
-ln -s $HOME/dotfiles/gitconfig ~/.gitconfig
-ln -s $HOME/dotfiles/inputrc ~/.inputrc
-ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
-ln -s $HOME/dotfiles/vim_snippets ~/.config/nvim/
-ln -s $HOME/dotfiles/vimrc ~/.vimrc
+ln -s "$HOME/dotfiles/coc-settings.json" ~/.config/nvim/coc-settings.json
+ln -s "$HOME/dotfiles/ctags" ~/.ctags
+ln -s "$HOME/dotfiles/editrc" ~/.editrc
+ln -s "$HOME/dotfiles/git_template" ~/.git_template
+ln -s "$HOME/dotfiles/gitconfig" ~/.gitconfig
+ln -s "$HOME/dotfiles/inputrc" ~/.inputrc
+ln -s "$HOME/dotfiles/tmux.conf" ~/.tmux.conf
+ln -s "$HOME/dotfiles/vim_snippets" ~/.config/nvim/
+ln -s "$HOME/dotfiles/vimrc" ~/.vimrc
 
 echo ""
 echo "Installing Docker..."
 curl -sSL https://get.docker.com | sh
-sudo usermod -aG docker $(whoami)
+sudo usermod -aG docker "$(whoami)"
 
 echo ""
 echo "Installing ripgrep..."
@@ -134,7 +134,7 @@ echo ""
 echo "Installing nvm..."
 mkdir -p  "$HOME/.nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-source ~/.bash_profile
+source "$HOME/.bash_profile"
 nvm install 8
 nvm install 10
 nvm alias default 10
@@ -142,8 +142,8 @@ nvm alias default 10
 echo ""
 echo "Installing npm packages..."
 npm install -g \
-	fixjson \
-	neovim
+    fixjson \
+    neovim
 
 echo ""
 echo "Installing yarn..."
@@ -153,19 +153,20 @@ mkdir -p "$HOME/.config/coc/extensions"
 cd ~/.config/coc/extensions
 if [ ! -f package.json ]
 then
-	echo '{"dependencies":{}}'> package.json
+    echo '{"dependencies":{}}'> package.json
 fi
 
 yarn add \
-	coc-python \
-	coc-json \
-	coc-snippets
+    coc-python \
+    coc-json \
+    coc-snippets
 
 echo ""
 echo "Installing vim..."
 mkdir -p "$HOME/.config/nvim"
 echo "source ~/.vimrc" > "$HOME/.config/nvim/init.vim"
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim \
+    --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +UpdateRemotePlugins +CocUpdateSync +qa
 
 
