@@ -1,0 +1,131 @@
+extends xslt
+
+snippet xslt-bootstrap "XSL Bootstrap" b
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="1.0">
+    <xsl:output method="xml" omit-xml-declaration="no" indent="yes"/>
+    <xsl:strip-space elements="*"/>
+
+    ${1}
+
+</xsl:stylesheet>
+
+endsnippet
+
+snippet xslt-bootstrap "XSL Bootstrap w/ EXSLT" b
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:exsl="http://exslt.org/common"
+    exclude-result-prefixes="exsl"
+    version="1.0">
+    <xsl:output method="xml" omit-xml-declaration="no" indent="yes"/>
+    <xsl:strip-space elements="*"/>
+
+    ${1}
+
+</xsl:stylesheet>
+
+endsnippet
+
+snippet xslt-identity-template "Identity Template for XSLT" b
+<xsl:template match="@*|node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+</xsl:template>
+endsnippet
+
+snippet xslt-randomize "Randomization Template for XSLT" b
+<xsl:template name="randomize-items">
+    <xsl:param name="items"/>
+    <xsl:param name="seed"/>
+    <xsl:if test="$items">
+      <xsl:variable name="a" select="1664525"/>
+      <xsl:variable name="c" select="1013904223"/>
+      <xsl:variable name="m" select="4294967296"/>
+      <xsl:variable name="random" select="($a * $seed + $c) mod $m"/>
+      <!-- scale random to integer 1..n -->
+      <xsl:variable
+  		name="i" select="floor($random div $m * count($items)) + 1"/>
+      <!-- write out the corresponding item -->
+      <xsl:copy-of select="$items[$i]"/>
+      <!-- recursive call with the remaining items -->
+      <xsl:call-template name="randomize-items">
+        <xsl:with-param name="items" select="$items[position()!=$i]"/>
+        <xsl:with-param name="seed" select="$random"/>
+      </xsl:call-template>
+    </xsl:if>
+</xsl:template>
+endsnippet
+
+snippet xslt-remove-html "XSLT template to remove HTML" b
+<xsl:template name="remove-html">
+    <xsl:param name="text"/>
+    <xsl:choose>
+      <xsl:when test="contains($text, '&lt;')">
+        <xsl:value-of select="substring-before($text, '&lt;')"/>
+        <xsl:call-template name="remove-html">
+          <xsl:with-param
+            name="text"
+            select="substring-after($text, '&gt;')"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$text"/>
+      </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+endsnippet
+
+snippet xslt-string-replace-all "XSLT template to replace string instances" b
+<?xml version="1.0"?>
+<xsl:template name="string-replace-all">
+    <xsl:param name="text"/>
+    <xsl:param name="replace"/>
+    <xsl:param name="by"/>
+    <xsl:choose>
+      <xsl:when test="$text = '' or $replace = ''or not($replace)">
+        <!-- Prevent this routine from hanging -->
+        <xsl:value-of select="$text"/>
+      </xsl:when>
+      <xsl:when test="contains($text, $replace)">
+        <xsl:value-of select="substring-before($text,$replace)"/>
+        <xsl:value-of select="$by"/>
+        <xsl:call-template name="string-replace-all">
+          <xsl:with-param name="text" select="substring-after($text,$replace)"/>
+          <xsl:with-param name="replace" select="$replace"/>
+          <xsl:with-param name="by" select="$by"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$text"/>
+      </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+endsnippet
+
+snippet xslt-tokenize "Tokenize Template for XSLT" b
+<xsl:template name="tokenize">
+	<xsl:param name="text"/>
+	<xsl:param name="delimiter" select="' '"/>
+	<xsl:choose>
+		<xsl:when test="contains($text,$delimiter)">
+			<xsl:element name="token">
+				<xsl:value-of select="substring-before($text,$delimiter)"/>
+			</xsl:element>
+			<xsl:call-template name="tokenize">
+				<xsl:with-param name="text" select="substring-after($text,$delimiter)"/>
+				<xsl:with-param name="delimiter" select="$delimiter"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="$text">
+			<xsl:element name="token">
+				<xsl:value-of select="$text"/>
+			</xsl:element>
+		</xsl:when>
+	</xsl:choose>
+</xsl:template>
+endsnippet

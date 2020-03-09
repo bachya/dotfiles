@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+_fasd_bash_cmd_complete	bin/fasd	/^_fasd_bash_cmd_complete() {$/;"	f
+_fasd_bash_hook_cmd_complete	bin/fasd	/^_fasd_bash_hook_cmd_complete() {$/;"	f
+_fasd_preexec	bin/fasd	/^_fasd_preexec() {$/;"	f
+_fasd_prompt_func	bin/fasd	/^_fasd_prompt_func() {$/;"	f
+_fasd_ps1_func	bin/fasd	/^_fasd_ps1_func() {$/;"	f
+_fasd_zsh_cmd_complete	bin/fasd	/^_fasd_zsh_cmd_complete() {$/;"	f
+_fasd_zsh_word_complete	bin/fasd	/^  _fasd_zsh_word_complete() {$/;"	f
+_fasd_zsh_word_complete_d	bin/fasd	/^  _fasd_zsh_word_complete_d() { _fasd_zsh_word_complete d ; }$/;"	f
+_fasd_zsh_word_complete_f	bin/fasd	/^  _fasd_zsh_word_complete_f() { _fasd_zsh_word_complete f ; }$/;"	f
+_fasd_zsh_word_complete_trigger	bin/fasd	/^  _fasd_zsh_word_complete_trigger() {$/;"	f
+ask_for_sudo	init.sh	/^function ask_for_sudo() {$/;"	f
+fasd	bin/fasd	/^fasd() {$/;"	f
+fasd_cd	bin/fasd	/^fasd_cd() {$/;"	f
+frecent	bin/fasd	/^      function frecent(time) {$/;"	f

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Disable beeping and window flashing
+set bell-style none
+
+# Use case-insensitive TAB autocompletion
+set completion-ignore-case on
+
+# Use vim editing mode
+set editing-mode vi
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
+# Auto list TAB completions
+set show-all-if-ambiguous off
+
+# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+set input-meta on
+set output-meta on
+set convert-meta off
