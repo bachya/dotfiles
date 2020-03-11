@@ -21,6 +21,9 @@ alias dockercleani='docker rmi $(docker images --filter "dangling=true" -q --no-
 alias dockercleanv='docker volume rm $(docker volume ls -qf dangling=true)'
 alias dockerclean='dockercleanc && dockercleani && dockercleanv'
 
+# Espanso
+alias ee='espanso edit'
+
 # Navigation:
 alias ..='cd ..'
 alias ...='cd ../..'
