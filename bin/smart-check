@@ -1,0 +1,23 @@
+#!/bin/bash
+set -euxo pipefail
+
+SLACK_COLOR_RED="danger"
+SLACK_HOOK_URL="https://hooks.slack.com/services/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"
+
+
+function send_slack_message() {
+   local color="$2"
+   local text="$1"
+   local message
+   message="👾 \`Media Center S.M.A.R.T Error\`: $text"
+
+   curl \
+       -X "POST" \
+       -H 'Content-Type: application/json' \
+       -d $'{ "attachments": [ { "color": "'"$color"'", "text": "'"$message"'" } ] }' \
+    "$SLACK_HOOK_URL"
+}
+
+send_slack_message \
+    "$SMARTD_FULLMESSAGE" \
+    "$SLACK_COLOR_RED"
