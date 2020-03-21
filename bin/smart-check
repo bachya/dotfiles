@@ -9,7 +9,7 @@ function send_slack_message() {
    local color="$2"
    local text="$1"
    local message
-   message="👾 \`Media Center S.M.A.R.T Error\`: $text"
+   message="👾 Hard Drive S.M.A.R.T Error: $text"
 
    curl \
        -X "POST" \
