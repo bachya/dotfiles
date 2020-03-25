@@ -41,7 +41,7 @@ alias gpp='gpl && gmod && gpu'
 alias u='sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove'
 
 # Python:
-alias venv='virtualenv .venv'
+alias venv='python3 -m virtualenv .venv'
 alias vsrc='source .venv/bin/activate'
 
 # Specialized:
