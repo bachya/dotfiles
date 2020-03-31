@@ -62,6 +62,8 @@ complete -f g git
 
 # EXPORTS
 # -----------------------------------------------------------------------------
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
 export EDITOR='nvim'
 export HISTCONTROL=ignoreboth:erasedups
 export HISTFILESIZE=10000
@@ -185,6 +187,8 @@ export NVM_DIR="$HOME/.nvm"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/bin:/usr/bin:$HOME/.local/bin:$HOME/dotfiles/bin"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+PATH="$HOME/.poetry/bin:$PATH"
+PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export PATH
 
 # PROMPT
