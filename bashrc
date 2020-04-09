@@ -63,7 +63,6 @@ complete -f g git
 # EXPORTS
 # -----------------------------------------------------------------------------
 export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
 export EDITOR='nvim'
 export HISTCONTROL=ignoreboth:erasedups
 export HISTFILESIZE=10000
