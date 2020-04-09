@@ -74,7 +74,6 @@ __git_complete gp _git_pull
 # EXPORTS
 # -----------------------------------------------------------------------------
 export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
 export EDITOR='nvim'
 export HISTCONTROL=ignoreboth:erasedups
 export HISTFILESIZE=10000
