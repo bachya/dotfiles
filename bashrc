@@ -11,7 +11,7 @@ alias :q='exit'
 alias c='clear'
 alias cl='clear'
 alias g='git'
-alias ll='ls -l'
+alias ll='ls -al'
 alias vim='nvim'
 
 # Docker:
