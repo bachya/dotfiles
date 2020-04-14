@@ -12,7 +12,8 @@ alias c='clear'
 alias cl='clear'
 alias cp='rsync -avP'
 alias g='git'
-alias ll='ls -l'
+alias ll='ls -al'
+alias vim='nvim'
 
 # Docker:
 alias dockerkillall='docker kill $(docker ps -q)'
