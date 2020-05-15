@@ -9,16 +9,16 @@ echo "Initializing Homebrew..."
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo ""
-echo "Installing dependencies..."
-brew bundle
-
-echo ""
 echo "Cloning a copy of dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
     git clone git@github.com:bachya/dotfiles.git
     cd dotfiles
     git checkout osx
 fi
+
+echo ""
+echo "Installing dependencies..."
+brew bundle
 
 echo ""
 echo "Linking configuration files..."
