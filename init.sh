@@ -30,6 +30,7 @@ if [ -f "$HOME/.bash_profile" ]; then
     mv -v "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
 fi
 
+mkdir -p "$HOME/.config/nvim"
 if [ -f "$HOME/.config/nvim/coc-settings.json" ]; then
     mv -v "$HOME/.config/nvim/coc-settings.json" \
         "$HOME/.config/nvim/coc-settings.json.bak"
