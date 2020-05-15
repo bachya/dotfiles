@@ -102,8 +102,8 @@ chsh -s /usr/local/bin/bash
 
 echo ""
 echo "Installing Python packages..."
-pip install neovim
-pip3 install \
+/usr/local/bin/pip install neovim
+/usr/local/bin/pip3 install \
     "flake8" \
     black \
     docformatter \
@@ -116,7 +116,7 @@ pip3 install \
     python-language-server \
     virtualenv \
     yamllint \
-curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | /usr/local/bin/python3
 poetry self:update --preview
 poetry completions bash > "$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion"
 
