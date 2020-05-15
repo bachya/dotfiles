@@ -102,7 +102,6 @@ chsh -s /usr/local/bin/bash
 
 echo ""
 echo "Installing Python packages..."
-/usr/local/bin/pip install neovim
 /usr/local/bin/pip3 install \
     "flake8" \
     black \
