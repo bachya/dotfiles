@@ -102,6 +102,9 @@ chsh -s /usr/local/bin/bash
 
 echo ""
 echo "Installing Python packages..."
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+rm get-pip.py
 /usr/local/bin/pip3 install \
     "flake8" \
     black \
