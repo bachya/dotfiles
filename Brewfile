@@ -8,6 +8,7 @@ brew "bash-completion@2"
 # programming
 brew "cmake"
 brew "coreutils"
+brew "ctags"
 brew "findutils"
 brew "git"
 brew "pyenv"
