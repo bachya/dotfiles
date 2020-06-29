@@ -58,7 +58,6 @@ export ORIGINAL_PATH=$PATH
 alias rsrc='export PATH="$ORIGINAL_PATH" && exec $SHELL -l'
 alias ud='$SHELL -c "cd $HOME/dotfiles && git pull && ./init.sh" && rsrc'
 alias wmc="ssh ck '/usr/bin/wakeonlan -i 172.16.10.255 -p 9 4C:CC:6A:69:90:D4'"
-eval "$(thefuck --alias ugh)"
 
 # BASH COMPLETION
 # -----------------------------------------------------------------------------
@@ -93,6 +92,11 @@ export LC_ALL='en_US.UTF-8'
 export MANPAGER='less -X'
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export PYTHONIOENCODING='UTF-8'
+
+# EVALS
+# -----------------------------------------------------------------------------
+eval "$(starship init bash)"
+eval "$(thefuck --alias ugh)"
 
 # FASD
 # -----------------------------------------------------------------------------
@@ -262,14 +266,6 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# PROMPT
-# -----------------------------------------------------------------------------
-function parse_git_dirty {
-    [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
-}
-
-export PS1='[\[\033[32m\]\w]\[\033[0m\]$(__git_ps1)$(parse_git_dirty)\n\[\033[1;36m\]\u@$(scutil --get ComputerName)\[\033[32m\]$ \[\033[0m\]'
 
 # PYENV
 # -----------------------------------------------------------------------------
