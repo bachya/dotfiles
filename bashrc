@@ -6,12 +6,13 @@ set -o vi
 alias sudo="sudo "
 
 # General:
-alias ls='ls --color=auto'
 alias :q='exit'
 alias c='clear'
 alias cl='clear'
+alias fd='fdfind'
 alias g='git'
 alias ll='ls -al'
+alias ls='ls --color=auto'
 alias vim='nvim'
 
 # Docker:
