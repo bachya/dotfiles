@@ -184,5 +184,9 @@ sudo apt install ./espanso-debian-amd64.deb
 rm ./espanso-debian-amd64.deb
 espanso install all-emojis
 
+echo ""
+echo "Installing Starship"
+curl -fsSL https://starship.rs/install.sh | bash
+
 # shellcheck source=bash_profile
 source ~/.bash_profile
