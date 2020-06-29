@@ -20,6 +20,7 @@ brew "tmux"
 # files and editor
 brew "bat"
 brew "espanso"
+brew "fd"
 brew "fzf"
 brew "neovim"
 brew "rename"
