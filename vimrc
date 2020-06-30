@@ -331,9 +331,6 @@ Plug 'airblade/vim-rooter'
 " Resizing the screen using arrow keys:
 Plug 'breuckelen/vim-resize'
 
-" Automatically resize splits/windows based on content:
-Plug 'camspiers/lens.vim'
-
 " Provides a completion function for Unicode glyphs:
 Plug 'chrisbra/unicode.vim'
 
