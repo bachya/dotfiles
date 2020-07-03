@@ -15,7 +15,7 @@ export PATH
 alias sudo="sudo "
 
 # General:
-alias ls='ls -G'
+alias ls='exa'
 alias :q='exit'
 alias c='clear'
 alias cl='clear'

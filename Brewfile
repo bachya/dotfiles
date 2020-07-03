@@ -21,6 +21,7 @@ brew "tmux"
 # files and editor
 brew "bat"
 brew "espanso"
+brew "exa"
 brew "fd"
 brew "fzf"
 brew "neovim"
