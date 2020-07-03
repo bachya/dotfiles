@@ -316,9 +316,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Speed up Vim by updating folds only when called for:
 Plug 'Konfekt/FastFold'
 
-" The ultimate snippet solution for Vim:
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
 " Display the indention levels with thin vertical lines:
 Plug 'Yggdroot/indentLine'
 
@@ -462,6 +459,9 @@ let g:ale_lint_on_text_changed = 0
 """ Plugin: clever-f.vim
 let g:clever_f_across_no_line = 1
 let g:clever_f_timeout_ms = 3000
+""" Plugin: coc.nvim
+" Use <Tab> to autocomplete:
+inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 """ Plugin: Color Scheme
 " Enable full-color support:
 set t_Co=256
@@ -540,12 +540,6 @@ nnoremap <silent> <C-\> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 """ Plugin: Supertab
 let g:SuperTabDefaultCompletionType = 'context'
-""" Plugin: UltiSnips
-" Better key bindings for UltiSnipsExpandTrigger:
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim_snippets"]
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 """ Plugin: vim-fugitive
 nnoremap <leader>gP :Gpull \| :Gpush<cr>
 nnoremap <Leader>gb :Gblame<CR>
