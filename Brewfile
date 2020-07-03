@@ -25,11 +25,11 @@ brew "exa"
 brew "fd"
 brew "fzf"
 brew "neovim"
+brew "procs"
 brew "rename"
 brew "ripgrep"
 brew "shellcheck"
 brew "thefuck"
-brew "tree"
 
 # fonts
 brew "font-fira-code"
