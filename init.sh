@@ -86,9 +86,9 @@ echo "Setting up FZF..."
 
 echo ""
 echo "Adding One Dark color scheme..."
-curl -fLO https://raw.githubusercontent.com/joshdick/onedark.vim/master/term/One%20Dark.itermcolors \
-	&& open One%20Dark.itermcolors \
-	&& rm -rf One%20Dark.itermcolors
+curl -fLO https://github.com/sindresorhus/iterm2-snazzy/raw/master/Snazzy.itermcolors \
+	&& open Snazzy.itermcolors \
+	&& rm -rf Snazzy.itermcolors
 
 echo ""
 echo "Adding quicker key repeat (reqires re-login)..."

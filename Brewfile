@@ -1,5 +1,6 @@
 tap "federico-terzi/espanso"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 
 # bash
 brew "bash"
@@ -28,6 +29,9 @@ brew "ripgrep"
 brew "shellcheck"
 brew "thefuck"
 brew "tree"
+
+# fonts
+brew "font-fira-code"
 
 # docker
 brew "docker-compose"
