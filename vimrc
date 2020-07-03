@@ -341,6 +341,9 @@ Plug 'christoomey/vim-sort-motion'
 " Seamless navigation between tmux panes and vim splits:
 Plug 'christoomey/vim-tmux-navigator'
 
+" Snazzy color theme:
+Plug 'connorholyday/vim-snazzy'
+
 " Vim motions on speed!
 Plug 'easymotion/vim-easymotion'
 
@@ -467,7 +470,7 @@ set t_Co=256
 set background=dark
 
 " Use this colorscheme:
-colorscheme onedark
+colorscheme snazzy
 """ Plugin: EasyMotion
 " Move to {char}:
 nmap  <Leader>f <Plug>(easymotion-bd-f)
