@@ -129,6 +129,7 @@ pip3 install \
     pyls-isort \
     python-language-server \
     virtualenv \
+    virtualenvwrapper \
     yamllint \
 
 echo ""

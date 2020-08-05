@@ -41,10 +41,6 @@ alias gpp='gpl && gmod && gpu'
 # apt-get
 alias u='sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove'
 
-# Python:
-alias venv='python3 -m virtualenv .venv'
-alias vsrc='source .venv/bin/activate'
-
 # Specialized:
 export ORIGINAL_PATH=$PATH
 alias rsrc="export PATH=\"$ORIGINAL_PATH\" && exec $SHELL -l"
@@ -138,6 +134,12 @@ function v() {
         && vim "${file}" || return 1
 }
 
+# usage: venv
+# to create a Python virtual env for the current directory
+function venv() {
+    mkvirtualenv "$(basename "$(pwd)")"
+}
+
 # usage: vg [search text]
 # to search for text with ripgrep and optionally open the result in Vim
 function vg() {
@@ -154,6 +156,12 @@ function vg() {
     file="$(echo "$result" | awk -F':' '{ print $1 }')"
     line_number="$(echo "$result" | awk -F':' '{ print $2 }')"
     vim "+$line_number" "$file"
+}
+
+# usage: vsrcj
+# to use the Python virtual env for the current directory
+function vsrc() {
+    workon "$(basename "$(pwd)")"
 }
 
 # usage: z [directory-fuzz]
@@ -199,9 +207,12 @@ PATH="$HOME/.poetry/bin:$PATH"
 PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export PATH
 
-# PYENV
+# PYTHON VENV STUFF
 # -----------------------------------------------------------------------------
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 # SHELL OPTIONS
 # -----------------------------------------------------------------------------
