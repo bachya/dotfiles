@@ -118,6 +118,7 @@ rm get-pip.py
     pyls-isort \
     python-language-server \
     virtualenv \
+    virtualenvwrapper \
     yamllint \
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | /usr/local/bin/python3
 poetry self:update --preview
