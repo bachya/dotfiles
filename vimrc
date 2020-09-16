@@ -372,7 +372,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'kshenoy/vim-signature'
 
 " Intellisense engine and LSP:
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Kills buffers without closing splits:
 Plug 'qpkorr/vim-bufkill'
