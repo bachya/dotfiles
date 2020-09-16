@@ -6,6 +6,7 @@ brew "bash"
 brew "bash-completion@2"
 
 # programming and cli
+tap "universal-ctags/universal-ctags/universal-ctags"
 brew "cmake"
 brew "coreutils"
 brew "findutils"
