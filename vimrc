@@ -361,7 +361,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
 
 " A command-line fuzzy finder:
-Plug '/usr/local/opt/fzf'
+Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 
 " Extends " and @ to see the contents of registers:
@@ -505,6 +505,8 @@ let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
 
 " Set the session path:
 let g:fzf_session_path = $HOME . '/.vim/sessions'
+
+let g:fzf_layout = { 'window': 'botright new' }
 
 " Toggle a file list
 nnoremap <leader>t :Files<CR>

@@ -104,6 +104,10 @@ ln -s "$HOME/dotfiles/vim_snippets" ~/.config/nvim/
 ln -s "$HOME/dotfiles/vimrc" ~/.vimrc
 
 echo ""
+echo "Setting up FZF..."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+
+echo ""
 echo "Installing Docker..."
 curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker "$(whoami)"
