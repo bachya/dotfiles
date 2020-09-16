@@ -1,4 +1,3 @@
-tap "federico-terzi/espanso"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
@@ -6,13 +5,13 @@ tap "homebrew/cask-fonts"
 brew "bash"
 brew "bash-completion@2"
 
-# programming
+# programming and cli
 brew "cmake"
 brew "coreutils"
-brew "ctags"
 brew "findutils"
 brew "git"
 brew "hadolint"
+brew "htop"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "python3"
@@ -39,6 +38,7 @@ brew "font-fira-code"
 brew "docker-compose"
 
 # mac apps
+tap "federico-terzi/espanso"
 cask "alfred"
 cask "bartender"
 cask "docker"
