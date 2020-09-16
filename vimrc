@@ -361,8 +361,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
 
 " A command-line fuzzy finder:
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Extends " and @ to see the contents of registers:
 Plug 'junegunn/vim-peekaboo'
@@ -501,25 +500,16 @@ endfunction
 nnoremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 """ Plugin: FZF
 " Make it easy to open FZF results in splits:
-let g:fzf_action = {
-			\ 'ctrl-s': 'split',
-			\ 'ctrl-v': 'vsplit'
-			\ }
+let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
 
 " Set the session path:
 let g:fzf_session_path = $HOME . '/.vim/sessions'
 
 " Toggle a file list
-nnoremap <leader>t :Files<CR>
+nnoremap <leader>t :CocCommand fzf-preview.ProjectFiles<CR>
 
 " Create a FZF-friendly grepping thing:
-command! -bang -nargs=* Rg
-\ call fzf#vim#grep(
-\   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-\   <bang>0 ? fzf#vim#with_preview('up:60%')
-\           : fzf#vim#with_preview('right:50%:hidden', '?'),
-\   <bang>0)
-nnoremap <leader>a :Rg<space>
+nnoremap <leader>a :CocCommand fzf-preview.ProjectGrep<space>
 """ Plugin: indentLine
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 239
