@@ -123,6 +123,7 @@ echo "Installing Python packages..."
 pip3 install \
     "flake8" \
     black \
+    docker-compose \
     gitlint \
     isort \
     neovim \
