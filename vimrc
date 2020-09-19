@@ -229,50 +229,6 @@ if has('unnamedplus')
 	set clipboard+=unnamedplus
 endif
 """ Editing
-" Automatically strip the trailing whitespaces when files are saved:
-function! StripTrailingWhitespaces() abort
-	" Save last search and cursor position:
-	let searchHistory = @/
-	let cursorLine = line('.')
-	let cursorColumn = col('.')
-
-	" Strip trailing whitespaces:
-	%s/\s\+$//e
-
-	" Restore previous search history and cursor position:
-	let @/ = searchHistory
-	call cursor(cursorLine, cursorColumn)
-endfunction
-
-if has('autocmd')
-	" Use relative line numbers:
-	augroup relative_line_numbers
-		autocmd!
-		" Automatically switch to absolute line numbers when vim is in insert mode:
-		autocmd InsertEnter * :set norelativenumber
-		" Automatically switch to relative line numbers when vim is in normal mode:
-		autocmd InsertLeave * :set relativenumber
-	augroup END
-
-	" Only strip the trailing whitespaces if the file type is not in the excluded
-    " file types list:
-	augroup strip_trailing_whitespaces
-		let excludedFileTypes = [
-					\ 'markdown',
-					\ 'mkd.markdown'
-					\]
-
-		autocmd!
-		autocmd BufWritePre * if index(excludedFileTypes, &ft) < 0 | :call StripTrailingWhitespaces()
-	augroup END
-
-	" Turn on spell check for certain files:
-	augroup turn_on_spell_check
-		autocmd!
-		autocmd BufRead,BufNewFile *.md setlocal spell
-	augroup END
-endif
-
 " http://vimcasts.org/episodes/soft-wrapping-text/
 command! -nargs=* Wrap set wrap linebreak nolist
 """ File Management
@@ -442,7 +398,8 @@ nnoremap <silent> <C-n> :ALENext<cr>
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['fixjson'],
-\   'python': ['black']
+\   'python': ['black'],
+\   'xml': ['xmllint']
 \}
 let g:ale_linters = {
 \   'python': ['flake8', 'pydocstyle', 'pylint']
