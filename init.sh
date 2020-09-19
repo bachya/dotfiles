@@ -22,14 +22,13 @@ sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update && sudo apt-get install -y \
     bash-completion \
     build-essential \
+    curl \
     exuberant-ctags \
     fd-find \
     git \
     jq \
     neovim \
-    python-pip \
     python3-dev \
-    python3-pip \
     python3-pip \
     python3-setuptools \
     thefuck \
@@ -105,7 +104,8 @@ ln -s "$HOME/dotfiles/vimrc" ~/.vimrc
 
 echo ""
 echo "Setting up FZF..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+[ ! -d "${HOME}/.fzf" ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 echo ""
 echo "Installing Docker..."
@@ -120,7 +120,6 @@ rm ripgrep_11.0.1_amd64.deb
 
 echo ""
 echo "Installing Python packages..."
-pip install neovim
 pip3 install \
     "flake8" \
     black \
