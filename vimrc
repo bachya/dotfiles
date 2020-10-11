@@ -470,6 +470,8 @@ let g:fzf_session_path = $HOME . '/.vim/sessions'
 " Toggle a file list
 nnoremap <leader>t :Files<CR>
 
+let g:fzf_layout = { 'window': 'botright new' }
+
 " Create a FZF-friendly grepping thing:
 command! -bang -nargs=* Rg
 \ call fzf#vim#grep(
