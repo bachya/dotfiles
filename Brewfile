@@ -17,6 +17,7 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 brew "python3"
 brew "reattach-to-user-namespace"
+brew "starship"
 brew "tmux"
 
 # files and editor

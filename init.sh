@@ -169,9 +169,5 @@ echo ""
 echo "Configuring espanso..."
 espanso install all-emojis
 
-echo ""
-echo "Installing Starship"
-curl -fsSL https://starship.rs/install.sh | bash
-
 # shellcheck source=bash_profile
 source "$HOME/.bash_profile"
