@@ -1,3 +1,4 @@
+#!/bin/bash
 set -o vi
 
 # PATHS
@@ -58,15 +59,15 @@ alias wmc="ssh ck '/usr/bin/wakeonlan -i 172.16.10.255 -p 9 4C:CC:6A:69:90:D4'"
 # BASH COMPLETION
 # -----------------------------------------------------------------------------
 if type brew &>/dev/null; then
-    for COMPLETION in "$(brew --prefix)"/etc/bash_completion.d/*
+    for COMPLETION in /usr/local/etc/bash_completion.d/*
     do
         # shellcheck source=/dev/null
         [[ -f $COMPLETION ]] && source "$COMPLETION"
     done
-    if [[ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]];
+    if [[ -f /usr/local/etc/profile.d/bash_completion.sh ]];
     then
         # shellcheck source=/dev/null
-        source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+        source /usr/local/etc/profile.d/bash_completion.sh
     fi
 fi
 
@@ -108,63 +109,6 @@ _fasd_bash_hook_cmd_complete v
 
 # FUNCTIONS
 # -----------------------------------------------------------------------------
-# usage: copy
-# to pipe output to the macOS clipboard
-# https://github.com/bag-man/dotfiles/blob/master/bashrc
-function copy() {
-    if [[ $1 =~ ^-?[hH] ]]; then
-        echo "Intelligently copies command results, text file, or raw text"
-        echo "to OS X clipboard"
-        echo
-        echo "Usage: copy [command or text]"
-        echo "  or pipe a command: [command] | copy"
-        return
-    fi
-
-    local output
-    local res=false
-    local msg=""
-
-    if [[ $# == 0 ]]; then
-        output=$(cat)
-        msg="Input copied to clipboard"
-        res=true
-    else
-        local cmd=""
-        for arg in "$@"; do
-            cmd+="\"$(echo -en $arg|sed -E 's/"/\\"/g')\" "
-        done
-        output=$(eval "$cmd" 2> /dev/null)
-        if [[ $? == 0 ]]; then
-            msg="Results of command are in the clipboard"
-            res=true
-        else
-            if [[ -f $1 ]]; then
-                output=""
-                for arg in $@; do
-                    if [[ -f $arg ]]; then
-                        type=`file "$arg"|grep -c text`
-                        if [ $type -gt 0 ]; then
-                            output+=$(cat $arg)
-                            msg+="Contents of $arg are in the clipboard.\n"
-                            res=true
-                        else
-                            msg+="File \"$arg\" is not plain text.\n"
-                        fi
-                    fi
-                done
-            else
-                output=$@
-                msg="Text copied to clipboard"
-                res=true
-            fi
-        fi
-    fi
-
-    $res && echo -ne "$output" | pbcopy -Prefer txt
-    echo -e "$msg"
-}
-
 # usage: kp
 # to show output of "ps -ef", use [tab] to select one or multiple entries
 # press [enter] to kill selected processes and go back to the process list.
