@@ -132,6 +132,7 @@ pip3 install \
     pyls-black \
     pyls-isort \
     python-language-server \
+    ranger-fm \
     virtualenv \
     virtualenvwrapper \
     yamllint \
