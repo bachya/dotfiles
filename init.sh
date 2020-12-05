@@ -22,6 +22,10 @@ brew bundle
 
 echo ""
 echo "Linking configuration files..."
+if [ -f "$HOME/.alacritty.yml" ]; then
+    mv -v "$HOME/.alacritty.yml" "$HOME/.alacritty.yml"
+fi
+
 if [ -f "$HOME/.bashrc" ]; then
     mv -v "$HOME/.bashrc" "$HOME/.bashrc.bak"
 fi
@@ -68,6 +72,7 @@ if [ -f "$HOME/.vimrc" ]; then
     mv -v "$HOME/.vimrc" "$HOME/.vimrc.bak"
 fi
 
+ln -s "$HOME/dotfiles/alacritty.yml" "$HOME/.alacritty.yml"
 ln -s "$HOME/dotfiles/bash_profile" "$HOME/.bash_profile"
 ln -s "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
 ln -s "$HOME/dotfiles/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
