@@ -30,6 +30,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias cd..='cd ..'
+alias r='ranger'
 
 # Git:
 alias gs='git status'
