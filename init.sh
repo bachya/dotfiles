@@ -122,6 +122,7 @@ rm get-pip.py
     pyls-black \
     pyls-isort \
     python-language-server \
+    ranger-fm \
     virtualenv \
     virtualenvwrapper \
     yamllint \
