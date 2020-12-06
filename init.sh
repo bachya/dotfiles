@@ -21,6 +21,11 @@ echo "Installing dependencies..."
 brew bundle
 
 echo ""
+echo "Configuring tmux..."
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+"$HOME/.tmux/plugins/tpm/bin/install_plugins"
+
+echo ""
 echo "Linking configuration files..."
 if [ -f "$HOME/.alacritty.yml" ]; then
     mv -v "$HOME/.alacritty.yml" "$HOME/.alacritty.yml"
