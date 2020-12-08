@@ -34,6 +34,13 @@ font:
 
 live_config_reload: true
 
+shell:
+  program: /usr/local/bin/bash
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
 window:
   decorations: none
   padding:
