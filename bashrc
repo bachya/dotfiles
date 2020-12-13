@@ -49,7 +49,7 @@ alias gpl='git pull'
 alias gpp='gpl && gmod && gpu'
 
 # HomeBrew:
-alias u='brew update && brew upgrade && softwareupdate -i -a'
+alias u='brew update && brew upgrade --cask && softwareupdate -i -a'
 
 # Specialized:
 export ORIGINAL_PATH=$PATH
