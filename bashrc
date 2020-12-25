@@ -1,5 +1,11 @@
 set -o vi
 
+# PATHS
+# ——————————————————————————
+PATH=“/usr/local/bin:/usr/local/sbin:$PATH”
+PATH=“$PATH:/bin:/usr/bin:$HOME/.local/bin:$HOME/dotfiles/bin”
+export PATH
+
 # ALIASES
 # -----------------------------------------------------------------------------
 # Allow sudo with aliases:
@@ -144,12 +150,6 @@ function z() {
 # FZF
 # -----------------------------------------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# PATHS
-# -----------------------------------------------------------------------------
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PATH="$PATH:/bin:/usr/bin:$HOME/.local/bin:$HOME/dotfiles/bin"
-export PATH
 
 # PROMPT
 # -----------------------------------------------------------------------------
