@@ -423,7 +423,7 @@ set t_Co=256
 set background=dark
 
 " Use this colorscheme:
-colorscheme onedark
+silent! colorscheme onedark
 """ Plugin: EasyMotion
 " Move to {char}:
 nmap  <Leader>f <Plug>(easymotion-bd-f)
