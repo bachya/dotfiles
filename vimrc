@@ -427,7 +427,7 @@ set t_Co=256
 set background=dark
 
 " Use this colorscheme:
-colorscheme snazzy
+silent! colorscheme snazzy
 """ Plugin: EasyMotion
 " Move to {char}:
 nmap  <Leader>f <Plug>(easymotion-bd-f)
