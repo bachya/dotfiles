@@ -189,10 +189,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--bind J:down,K:up --reverse --ansi '
 
-# ITERM SHELL INTEGRATION
-# -----------------------------------------------------------------------------
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
 # NVM
 # -----------------------------------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
@@ -214,7 +210,7 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
+source "$(command -v virtualenvwrapper.sh)"
 
 # SHELL OPTIONS
 # -----------------------------------------------------------------------------
