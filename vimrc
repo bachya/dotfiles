@@ -320,7 +320,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'jreybert/vimagit'
 
 " A command-line fuzzy finder:
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Extends " and @ to see the contents of registers:
