@@ -415,6 +415,9 @@ let g:ale_echo_msg_warning_str = 'W'
 " Only lint on save, not everytime something changes:
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
+""" Plugin: coc.nvim
+let g:coc_global_extensions = ["coc-json", "coc-python", "coc-snippets"]
+"""
 """ Plugin: clever-f.vim
 let g:clever_f_across_no_line = 1
 let g:clever_f_timeout_ms = 3000
